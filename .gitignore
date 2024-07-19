@@ -1,0 +1,5 @@
+Pipfile
+Pipfile.lock
+.idea
+db.sqlite3
+.env

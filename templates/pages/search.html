@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'pages/base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+{% if search %}
+<h1>"{{ search }}" ni qidirdingiz</h1>
+<br>
+
+{% for new_search in news_search %}
+<img alt="" width="550px" src="{{ new_search.image.url }}">
+<h1>{{ new_search }}</h1><br>
+<b>{{ new_search.body }}<br><br>
+<a href="{% url 'news_update_page' new_search.pk %}">
+    <button type="submit" class="btn btn-info ml-2">O`zgartirish</button>
+</a>
+<a href="{% url 'news_delete_page' new_search.pk %}">
+    <button type="submit" class="btn btn-danger ml-2">O'chirish</button>
+</a>
+</b><br><br>
+{% endfor %}
+
+{% else %}
+
+<h1>Hech nima kiritmadiz</h1>
+
+<br><br>
+{% endif %}
+</body>
+</html>
+{% endblock content %}

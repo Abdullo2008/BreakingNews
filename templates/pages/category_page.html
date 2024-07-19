@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category</title>
+</head>
+<body>
+{% for category in categorys %}
+<img alt="" width="550px" src="{{ category.image.url }}">
+<h1>{{ category.title }}</h1>
+<p>published time: {{ category.publish_time }}</p><br><br>
+<b>{{ category.body | linebreaks }}</b>
+{% if user.is_superuser %}
+<a href="{% url 'news_update_page' category.pk %}">
+    <button type="submit" class="btn btn-info ml-2">O`zgartirish</button>
+</a>
+<a href="{% url 'news_delete_page' category.pk %}">
+    <button type="submit" class="btn btn-danger ml-2">O'chirish</button>
+</a>
+{% endif %}
+<br><br>
+{% endfor %}
+</body>
+</html>
+{% endblock %}

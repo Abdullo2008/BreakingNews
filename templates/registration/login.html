@@ -1,0 +1,15 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %} Login sahifasi {% endblock title %}
+
+{% block content %}
+
+<h2>Web - saytga kirish - login</h2>
+<p>Akkauntingiz yo`qmi? <a style="color: blue" href="register_user">Unda ro`yxatdan o`ting</a>.</p>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+<br>
+<p>Parolni unutdingizmi?<a href="{% url 'password_reset' %}" style="color: blue;"> Unda qayta tiklang</a></p>
+{% endblock content %}

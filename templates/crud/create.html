@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+    <h2 class="text-center">Yangilikni Qo'shish</h2>
+<br><br>
+<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-info ml-2">Qo'shish</button>
+</form>
+</body>
+</html>
+{% endblock %}

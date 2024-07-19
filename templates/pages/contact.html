@@ -1,0 +1,47 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+<title>{% block title %} Biz bilan aloqa {% endblock title %}</title>
+{% block content %}
+<section id="contentSection">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <div class="left_content">
+                <div class="contact_area">
+                    <h2>Contact Us</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dosectetur adipisicing elit, sed
+                        do.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <form action="#" class="contact_form" method="post">{% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Xabar Jo'natish">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="latest_post" style="overflow: hidden;">
+                <h2><span>SO`NGGI YANGILIKLAR</span></h2>
+                <div class="latest_post_container">
+                    <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
+                    <ul class="latest_postnav">
+                        {% for news_list in news_lists %}
+                        <li>
+                            <div class="media"><a href="{% url 'single' news_list.id %}" class="media-left"> <img
+                                    alt=""
+                                    src="{{ news_list.image.url }}">
+                            </a>
+                                <div class="media-body"><a href="{% url 'single' news_list.id %}" class="catg_title">
+                                    {{ news_list.title | truncatewords:5 }}</a></div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

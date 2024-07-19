@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News list</title>
+</head>
+<body>
+{% for news in yangiliklar %}
+<img alt="" width="550px" height="400" src="{{ news.image.url }}">
+<h1>{{ news.title }}</h1><br><br>
+<b>{{ news.body | linebreaks }}</b><br><br>
+{% if user.is_superuser %}
+<a href="{% url 'news_update_page' news.pk %}">
+    <button type="submit" class="btn btn-info ml-2">O`zgartirish</button>
+</a>
+<a href="{% url 'news_delete_page' news.pk %}">
+    <button type="submit" class="btn btn-danger ml-2">O'chirish</button>
+</a>
+{% endif %}
+
+{% endfor %}
+</body>
+</html>
+{% endblock %}

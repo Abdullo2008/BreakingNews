@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete page</title>
+</head>
+<body>
+    <h2>Yangilikni o`chirish</h2>
+    <br><br>
+<form method="POST" action="">{% csrf_token %}
+    <p>{{ news.title | truncatewords:3 }}... yangilik o`chirilsinmi?</p>
+    <button type="submit" class="btn btn-danger ml-2">OK</button>
+</form>
+</body>
+</html>
+{% endblock %}
