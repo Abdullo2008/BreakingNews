@@ -1,5 +1,6 @@
 # Breaking News
-### About this is my first website using django. I used NewsFeed for frontend.
+### About 
+This is my first website using django. I used NewsFeed for frontend.
 # How to launch and run
 ### Create virtual env (terminal):
 ```pip install pipenv```
